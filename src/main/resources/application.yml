@@ -1,0 +1,37 @@
+#======================
+# Logback configuration
+#======================
+server:
+  port: 8083
+
+
+logging:
+  pattern:
+    console: "%d %-5level [%thread] %logger : %msg%n"
+  level:
+    root: WARN
+    com.hazelcast: INFO
+    io.danpalmer101: DEBUG
+
+#========================
+# Hazelcast configuration
+#========================
+
+hazelcast:
+  server:
+    addresses: "10.1.34.159:5701"
+    group: "hazelcast-cluster"
+    pass: "hazelcast-cluster"
+  client:
+    instance:
+      name: "hazelcast-cluster"
+
+#==========
+# Actuators
+#==========
+
+endpoints:
+  sensitive: false
+spring:
+  application:
+    name: hazelcast-viewer
